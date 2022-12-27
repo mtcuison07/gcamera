@@ -1,0 +1,450 @@
+/* HEADER CSS */
+.toolbar{
+    -fx-background-color: #4C4C4C;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * DRAWER CSS                                                                     *
+ *                                                                             *
+ ******************************************************************************/
+
+.sidebar{
+    -fx-spacing: 1;
+    -fx-background-color: #bfbfbf;
+}
+.sidebar_close{
+    -fx-background-color: #F88222;
+    -fx-spacing: 10;
+    -fx-background-radius: 0;
+}
+.side-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    -fx-font-size:14;
+    -fx-border-color: transparent transparent #8c8c8c transparent;
+}
+.side-button:hover {
+    -fx-background-color: #f2f2f2;
+    -fx-font-weight: bold;
+    -fx-fill-height: true;
+    -fx-text-fill: black;
+    -fx-background-radius: 0;
+    -fx-font-size:14;
+}
+.side-button:focused {
+    -fx-background-color: #f2f2f2;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-background-radius: 0;
+    -fx-font-size:14;
+}
+.side-button:selected {
+    -fx-background-color: #f2f2f2;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-background-radius: 0;
+    -fx-font-size:14;
+}.side-button:selected:focused {
+    -fx-background-color: #f2f2f2;
+    -fx-font-weight: bold;
+    -fx-background-radius: 0;
+    -fx-font-size:14;
+}
+.sidebar-label {
+    -fx-text-fill: white;
+}
+.sidebar-icon {
+    -fx-fill: #4C4C4C;
+}
+
+.sidebar-icon:selected {
+    -fx-fill: #4C4C4C;
+}
+.drawer {
+    -fx-background-color: #bfbfbf;
+}
+.drawer:hover {
+    -fx-background-color: #bfbfbf;
+}
+.split-pane:horizontal, .split-pane:vertical {
+    -fx-background-color: transparent;
+}
+.split-pane:horizontal > .split-pane-divider {
+    -fx-background-color: transparent;
+}
+.split-pane:horizontal {
+    -fx-background-color: transparent;
+}
+.split-pane:vertical > .split-pane-divider {
+    -fx-background-color: transparent;
+}
+/* DRAWER CSS END*/
+
+/*BODY CSS*/
+
+.footer {
+  -fx-background-color: #d9d9d9;
+}
+/*******************************************************************************
+ *                                                                             *
+ * BUTTON BODY CSS                                                                     *
+ *                                                                             *
+ ******************************************************************************/
+
+.button_process {
+  -fx-background-color: #F88222;
+  -fx-text-fill: white;
+  -fx-cursor: hand;
+}
+.button_process:hover
+{
+  -fx-background-color: #F99922;
+  -fx-text-fill: black;
+}
+
+.button_process:hover > .glyph-icon
+{
+  -fx-fill: black;
+}
+
+.button_process > .glyph-icon {
+   -fx-fill: white;
+}
+/* BUTTON BODY CSS END */
+
+/*******************************************************************************
+ *                                                                             *
+ * TAB PANE CSS                                                                     *
+ *                                                                             *
+ ******************************************************************************/
+
+.tab-pane *.tab-header-area *.tab-header-background {
+  -fx-background-radius: 0;
+  -fx-background-insets: 0;
+  -fx-border-radius: 0;
+  -fx-border-insets: 0;
+}
+
+.tab-pane {
+  -fx-tab-min-height:30px;
+  -fx-tab-max-height:30px;
+}
+.tab {
+    -fx-tab-min-height:30px;
+    -fx-tab-max-height:30px;
+    -fx-font-family: Arial;
+    -fx-font-size: 12;
+    -fx-cursor: hand;
+    -fx-background-color: #e6e6e6;
+    -fx-border-radius: 5 5 0 0;
+    -fx-border-color: #a6a6a6 #a6a6a6 transparent #a6a6a6;
+    -fx-background-insets: 0 0.083333em 0 0, 1 0.083333em 1 1, 0.083333em 0 0;
+    -fx-padding: 0.083333em 0.083333em 0.083333em 0.083333em;
+}
+
+.tab-label{
+  -fx-padding: 0 15 0 15;
+}
+.tab:hover {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-color: #a6a6a6;
+    -fx-border-radius: 5 5 0 0;
+    -fx-border-color: #a6a6a6 #a6a6a6 transparent #a6a6a6;
+    -fx-background-insets: 0 0.083333em 0 0, 1 0.083333em 1 1, 0.083333em 0 0;
+    -fx-padding: 0.083333em 0.083333em 0.083333em 0.083333em;
+}
+
+.tab:selected {
+    -fx-border-color: orange orange transparent orange;
+    -fx-border-radius: 5 5 0 0;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-background-color: #f2f2f2;
+    -fx-font-weight: bold;
+    -fx-background-insets: 0 0.083333em 0 0, 1 0.083333em 1 1, 0.083333em 0 0;
+    -fx-padding: 0.083333em 0.083333em 0.083333em 0.083333em;
+}
+
+.tab:selected .tab-label {
+    -fx-text-fill: black;
+}
+.text-area {
+    -fx-resize: auto;
+    -fx-opacity: 1.0;
+    -fx-background-color:
+        grey,
+        white;
+   -fx-text-fill: black;
+}
+
+.text-area .scroll-pane {
+    -fx-hbar-policy: never;
+    -fx-vbar-policy: never;
+    -fx-focus-color: transparent;
+    -fx-background-color: transparent;
+    -fx-opacity: 1.0;
+}.text-area .scroll-pane:disabled {
+    -fx-hbar-policy: never;
+    -fx-vbar-policy: never;
+    -fx-focus-color: transparent;
+    -fx-background-color: transparent;
+    -fx-opacity: 1.0;
+}
+
+.text-field {
+    -fx-font-size: 10pt;
+    -fx-min-height: 26;
+    -fx-opacity: 1.0;
+    -fx-background-color:
+        grey,
+        white;
+    -fx-textflow: wrap;
+}
+
+.text-field, .text-area:focused {
+    -fx-min-height: 26;
+    -fx-background-color:
+        orange,
+        white;
+}
+.text-field, .text-area:disabled {
+    -fx-font-size: 10pt;
+    -fx-min-height: 26;
+    -fx-opacity: 1.0;
+    -fx-background-color:
+        grey,
+        white;
+    -fx-textflow: wrap;
+}
+
+.menu-button {
+    -fx-font-size: 10pt;
+    -fx-min-height: 26;
+    -fx-opacity: 1.0;
+    -fx-background-color:
+        grey,
+        white;
+    -fx-textflow: wrap;
+}
+
+.menu-button:focused {
+    -fx-min-height: 26;
+    -fx-background-color:
+        orange,
+        white;
+}
+.check-menu-item
+{
+    -fx-mark-color: #F88222 ;
+    -fx-background-color: white;
+}
+.check-menu-item:focused
+{
+    -fx-focused-mark-color: white ;
+    -fx-background-color: #F88222;
+}
+/*******************************************************************************
+ *                                                                             *
+ * SCROLL PANE CSS                                                                     *
+ *                                                                             *
+ ******************************************************************************/
+
+.scroll-pane-item-management{
+   -fx-background-color:transparent;
+   -fx-hbar-policy: never;
+}
+.scroll-pane-item-management > .viewport { 
+   -fx-background-color: transparent;
+}
+.scroll-pane {
+    -fx-focus-color: transparent;
+    -fx-smooth: true;
+    -fx-unit-increment: 16;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * RADIO BUTTON CSS                                                                     *
+ *                                                                             *
+ ******************************************************************************/
+
+.radio-button {
+    -fx-opacity: 1.0;
+}
+.radio-button .radio {
+    -fx-border-width: 1px;
+    -fx-border-color: grey;
+    -fx-background-color: transparent;
+    -fx-border-radius: 15px;
+    -fx-padding: 4px;
+}
+.radio-button:selected .radio {
+    -fx-border-color:#cc5200;
+}
+.radio-button .dot {
+    -fx-background-radius: 15px;
+    -fx-padding: 4px;
+    -fx-mark-highlight-color: #cc5200 ;
+    -fx-mark-color: #cc5200 ;
+}
+
+
+/*******************************************************************************
+ *                                                                             *
+ * LineChart                                                                     *
+ *                                                                             *
+ ******************************************************************************/
+
+.chart-line-symbol {
+    /*-fx-background-color: #009999, white;*/
+    -fx-background-color: orange, white;
+    -fx-background-insets: 0, 2;
+    -fx-background-radius: 5px;
+    -fx-padding: 5px;
+}
+.chart-series-line {
+    /*-fx-stroke: #009999;*/
+    -fx-stroke: orange;
+    -fx-stroke-width: 3px;
+}
+.default-color0.chart-line-symbol { -fx-background-color: orange; }
+.default-color1.chart-line-symbol { -fx-background-color: orange; }
+.default-color2.chart-line-symbol { -fx-background-color: orange; }
+.default-color3.chart-line-symbol { -fx-background-color: orange; }
+.default-color4.chart-line-symbol { -fx-background-color: orange; }
+.default-color5.chart-line-symbol { -fx-background-color: orange; }
+.default-color6.chart-line-symbol { -fx-background-color: orange; }
+.default-color7.chart-line-symbol { -fx-background-color: orange; }
+.default-color0.chart-series-line { -fx-stroke: orange; }
+.default-color1.chart-series-line { -fx-stroke: orange; }
+.default-color2.chart-series-line { -fx-stroke: orange; }
+.default-color3.chart-series-line { -fx-stroke: orange; }
+.default-color4.chart-series-line { -fx-stroke: orange; }
+.default-color5.chart-series-line { -fx-stroke: orange; }
+.default-color6.chart-series-line { -fx-stroke: orange; }
+.default-color7.chart-series-line { -fx-stroke: orange; }
+
+.tooltip {
+    -fx-show-delay: 100ms;
+}
+.dash-sale{
+    -fx-background-color:  #9C27B0;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+.dash-order{
+    -fx-background-color:  #008080;
+    -fx-border-radius: 5px;   
+    -fx-background-radius: 5px;    
+}
+.dash-product{
+    -fx-background-color:  #336699;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;   
+}
+.dash-client{
+    -fx-background-color:  #46a049;
+    -fx-border-radius: 5px;   
+    -fx-background-radius: 5px;   
+}
+
+.dash-sale:hover{
+    -fx-background-color: #c043d6;
+}
+.dash-order:hover{
+    -fx-background-color: #00b3b3;
+}
+.dash-product:hover{
+    -fx-background-color: #4080bf;
+}
+
+.dash-client:hover{
+    -fx-background-color: #5fb962;
+}
+
+
+/*******************************************************************************
+ *                                                                             *
+ * LISTVIEW CSS                                                                     *
+ *                                                                             *
+ ******************************************************************************/
+
+.combo-box-base{
+    -fx-font-family: "Courier New";
+    -fx-background-color: white;
+    -fx-border-color: grey;
+    -fx-text-alignment: center;
+    -fx-border-radius:3px; 
+}
+
+
+.combo-box-base:disabled,
+.list-cell:disabled,
+.check-box:disabled{
+  -fx-opacity: 1;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * LISTVIEW CSS                                                                     *
+ *                                                                             *
+ ******************************************************************************/
+
+.list-view {
+    -fx-border-image-width: 0;
+    -fx-opacity: 1;
+}
+
+.list-view .label:disabled {
+    -fx-opacity: 1;
+}
+.list-view > .virtual-flow > .corner {
+    -fx-background-color: transparent;
+}
+/*
+.list-cell {
+    -fx-cell-size: 50 ;
+    -fx-animated: true;
+    -fx-padding: 1px;
+    -fx-opacity: 1;
+    -fx-text-fill: black;
+}
+.list-cell:filled:selected:focused:disabled, 
+.list-cell:filled:selected:disabled {
+    -fx-opacity: 1;
+}
+
+.list-cell:hover{
+    -fx-background-color: #dbdbdb;
+}
+
+
+#statusList {
+    -fx-box-border: transparent;
+}
+
+#userList {
+    -fx-box-border: transparent;
+}
+
+#listHbox {
+    -fx-background-color: #d5d5d5;
+    -fx-padding: 0.2;
+    -fx-spacing: -2;
+}
+#listHbox:disabled {
+    -fx-background-color: #d5d5d5;
+    -fx-padding: 0.2;
+    -fx-spacing: -2;
+    -fx-opacity: 1;
+    
+}
+
+#onlineUsersHbox {
+    -fx-border-color: #d5d5d5;
+    -fx-border-width: 1px;
+    -fx-padding: 0.2;
+    -fx-spacing: -2;
+}*/
