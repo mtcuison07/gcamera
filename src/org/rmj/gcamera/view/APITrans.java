@@ -47,8 +47,8 @@ public class APITrans {
     }
     
     private static HashMap getHeaders(){
-        String clientid = System.getProperty("user.client.id");
-        String user = System.getProperty("user.id");
+        String clientid = "GMC_BM001";
+        String user = "M001111122";
         
         String productid = "IntegSys";
         String imei = MiscUtil.getPCName();

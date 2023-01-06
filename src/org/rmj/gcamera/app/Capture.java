@@ -7,6 +7,7 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Modality;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -21,6 +22,9 @@ public class Capture extends Application {
     
     private double xOffset = 0; 
     private double yOffset = 0;
+    
+    private static String qrvalue = "";
+    private static String resultx = "";
     
     @Override
     public void start(Stage stage) throws Exception {        
@@ -54,9 +58,22 @@ public class Capture extends Application {
             });
 
         stage.centerOnScreen();
-        stage.show();
+        stage.initStyle(StageStyle.TRANSPARENT);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.showAndWait();
+        
+        qrvalue = controller.getQRValue();
+        resultx = controller.getQRResult();
+    }
+    
+    public String getQRValue(){
+        return qrvalue;
     }
 
+    public String getQRResult(){
+        return resultx;
+    }
+    
     public static void main(String[] args) {
         String path;
         if(System.getProperty("os.name").toLowerCase().contains("win")){
