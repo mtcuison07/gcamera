@@ -38,7 +38,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javax.imageio.ImageIO;
-
+import org.json.simple.JSONObject;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfByte;
@@ -55,10 +55,14 @@ public class QRScannerController implements Initializable {
     
     private Image imageToShow;
     private BufferedImage imageToSave;
+    
     private ScheduledExecutorService timer;
     private VideoCapture videoCapture;
-    private String psFileName = "";  
+    
     private PauseTransition delay;
+    
+    private static String qrvalue = "";
+    private static String psFileName = "";  
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -71,6 +75,10 @@ public class QRScannerController implements Initializable {
     
     public String getQRValue(){
         return psFileName;
+    }
+    
+    public String getQRResult(){
+        return qrvalue;
     }
     
     public void setFileName(String fsValue){
@@ -93,17 +101,13 @@ public class QRScannerController implements Initializable {
         
         videoCapture = new VideoCapture();
         videoCapture.open(0);
-//            VideoCapture videoCapture = new VideoCapture(0);
 
         if (this.videoCapture.isOpened()){
-            // grab a frame every 33 ms (30 frames/sec)
             Runnable frameGrabber = new Runnable() {
                 @Override
                 public void run(){
-                    // effectively grab and process a single frame
                     Mat frame = grabFrame();
                     
-                    // convert and show the frame
                     imageToShow = Utils.mat2Image(frame);
                     imageToSave = Utils.matToBufferedImage(frame);
         
@@ -113,8 +117,10 @@ public class QRScannerController implements Initializable {
                     try {
                         Result result = new MultiFormatReader().decode(bitmap);
                         psFileName = result.getText();
-                        closeCamera();
+                        getResult();
                         createTempFile();
+                        
+                        closeCamera();
                     } catch (NotFoundException e) {
                         psFileName = "";
                     }
@@ -134,19 +140,10 @@ public class QRScannerController implements Initializable {
     }
     
     private Mat grabFrame(){
-        // init everything
-        Mat frame = new Mat();
-
-        // check if the videoCapture is open
+        Mat frame = new Mat();        
         if (this.videoCapture.isOpened()){
             try{
-                // read the current frame
                 this.videoCapture.read(frame);
-
-                //if the frame is not empty, process it
-                //if (!frame.empty()){
-                //Imgproc.cvtColor(frame, frame, Imgproc.COLOR_BGR2GRAY);
-                //}
             } catch (Exception e){
                 //log the error
                 System.err.println("Exception during the image elaboration: " + e);
@@ -156,18 +153,28 @@ public class QRScannerController implements Initializable {
         return frame;
     }
         
+    private void getResult() {
+        if (psFileName != null){           
+            qrvalue = APITrans.getUserPanalo(psFileName);
+        } else {
+            JSONObject err_detl = new JSONObject();
+            err_detl.put("message", "No string value captured.");
+            err_detl.put("code", "250");
+            
+            JSONObject err_mstr = new JSONObject();
+            err_mstr.put("result", "error");
+            err_mstr.put("error", err_detl);
+            qrvalue =  err_mstr.toJSONString();
+        }
+    }
+    
     private void createTempFile() {
         File tempFileDir = new File(System.getProperty("sys.default.path.config") + "/temp/" + "panalo.tmp");
         
         Path path = Paths.get(tempFileDir.getAbsolutePath());
         
         try{
-            if (psFileName != null){
-                //call api
-                psFileName = APITrans.getUserPanalo(psFileName);
-                
-                Files.write(path, psFileName.getBytes());
-            }
+            Files.write(path, qrvalue.getBytes());
         }   catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -203,21 +210,16 @@ public class QRScannerController implements Initializable {
     private void closeCamera(){
         if (this.timer!=null && !this.timer.isShutdown()){
             try{
-                // stop the timer
                 this.timer.shutdown();
                 this.timer.awaitTermination(33, TimeUnit.MILLISECONDS);
                 
-                //this will unload the stage
                 delay.play();
-                
             } catch (InterruptedException e){
-                // log any exception
                 System.err.println("Exception in stopping the frame capture, trying to release the camera now... " + e);
             }
         }
 
         if (this.videoCapture.isOpened()){
-            // release the camera
             this.videoCapture.release();
         }
     }
@@ -263,4 +265,3 @@ public class QRScannerController implements Initializable {
         }
     } 
 }
-
